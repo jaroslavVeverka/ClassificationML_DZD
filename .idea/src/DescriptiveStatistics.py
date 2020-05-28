@@ -49,6 +49,7 @@ X_train, X_test, y_train, y_test = train_test_split(data[['Age_0', 'Age_1', 'Age
 X_train, y_train = SMOTE().fit_resample(X_train, y_train)
 print(sorted(Counter(y_train).items()))
 
+# Logistic regression - modeling and evaluation on testing dataset
 from sklearn.linear_model import LogisticRegression
 
 lr = LogisticRegression()
