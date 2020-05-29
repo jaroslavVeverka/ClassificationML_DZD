@@ -56,5 +56,47 @@ lr = LogisticRegression()
 lr.fit(X_train, y_train)
 
 prediction_lr = lr.predict(X_test)
+print('Logistic Regression - evaluation')
 print(accuracy_score(prediction_lr, y_test))
 print(confusion_matrix(prediction_lr, y_test, labels=[0, 1]))
+
+# Decision Tree - modeling and evaluation on testing dataset
+from sklearn import tree
+tree = tree.DecisionTreeClassifier()
+tree.fit(X_train, y_train)
+
+prediction_tree = tree.predict(X_test)
+print('Decision Tree - evaluation')
+print(accuracy_score(prediction_tree,y_test))
+print(confusion_matrix(prediction_tree, y_test, labels=[0, 1]))
+
+# Naive Bayes - modeling and evaluation on testing dataset
+from sklearn.naive_bayes import ComplementNB
+bayes = ComplementNB()
+bayes.fit(X_train, y_train)
+
+prediction_bayes = bayes.predict(X_test)
+print('Naive Bayes - evaluation')
+print(accuracy_score(prediction_bayes,y_test))
+print(confusion_matrix(prediction_bayes, y_test, labels=[0, 1]))
+
+# Support Vector Machine - modeling and evaluation on testing dataset
+from sklearn import svm
+svm = svm.SVC()
+svm.fit(X_train, y_train)
+
+svm_prediction = svm.predict(X_test)
+print(accuracy_score(svm_prediction, y_test))
+print('Support Vector Machine - evaluation')
+print(confusion_matrix(svm_prediction, y_test, labels=[0, 1]))
+
+# Neural Net (Multi-layer perceptron) - modeling and evaluation on testing dataset
+from sklearn.neural_network import MLPClassifier
+mlp = MLPClassifier(max_iter=1000)
+mlp.fit(X_train, y_train)
+
+prediction_mlp = mlp.predict(X_test)
+print('Neural Net (Multi-layer perceptron) - evaluation')
+print(accuracy_score(prediction_mlp, y_test))
+print(confusion_matrix(prediction_mlp, y_test, labels=[0, 1]))
+
